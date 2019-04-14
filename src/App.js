@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
-import Home from './components/Home';
-import Login from './components/Login';
-import Users from './components/Users';
-import User from './components/User';
+import Home from './containers/Home';
+import Login from './containers/Login';
+import Users from './containers/Users';
+import User from './containers/User';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
           <a className="navbar-brand" href="#">{this.props.siteName}</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -26,11 +26,12 @@ class App extends Component {
           </div>
         </nav>
 
-
-        <Route path="/" exact component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/users/:pageNumber?" component={Users} />
-        <Route path="/user/:userID" component={User} />
+        <div className="container">
+          <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/users/:pageNumber?" component={Users} />
+          <Route path="/user/:userID" component={User} />
+        </div>
 
       </Router>
     );
