@@ -8,10 +8,9 @@ class LoginForm extends Component {
             user: {
                 email: '',
                 password: ''
-            }
+            },
+            msgLocal: 'Local Message'
         }
-
-        console.log('constructor', props);
     }
     handlerChangeUser = (property, value) => {
         let user = this.state.user;
@@ -22,54 +21,34 @@ class LoginForm extends Component {
         })
     }
 
-    componentWillMount() {
-        console.log('componentWillMount');
+    changeLocalMsg = (e) => {
+        e.preventDefault();
+        this.setState({
+            msgLocal: this.state.msgLocal + "1"
+        })
     }
 
     render() {
-        console.log('render');
         return (
             <form className="login-form">
                 <div className="alert alert-primary">
                     {this.props.msg}
                 </div>
+                <div className="alert alert-success">
+                    {this.state.msgLocal}
+                </div>
+                <button onClick={this.changeLocalMsg}>Change Local MSG</button>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input type="email" value={this.state.user.email} onChange={(e) => this.handlerChangeUser('email', e.target.value)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" value={this.state.user.password} onChange={(e) => this.handlerChangeUser('password', e.target.value)} className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                    <input type="password" value={this.state.user.password} onChange={(e) => this.handlerChangeUser('password', e.target.value)} className="form-control" id="exampleInputPassword1" placeholder="Password" autoComplete="true" />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         )
-    }
-
-    componentDidMount() {
-        console.log('componentDidMount');
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps', nextProps);
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate', nextProps, nextState);
-
-        return true;
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate', nextProps, nextState);
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate', prevProps, prevState);
-    }
-
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
     }
 }
 

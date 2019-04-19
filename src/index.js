@@ -16,6 +16,8 @@ const reducer = (state = initState, action) => {
         case "CHANGE_SITE_NAME":
             state = {...state, siteName: action.payload}
         break;
+        default:
+        break;
     }
 
     return state;
