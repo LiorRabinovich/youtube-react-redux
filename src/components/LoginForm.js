@@ -21,23 +21,14 @@ class LoginForm extends Component {
         })
     }
 
-    changeLocalMsg = (e) => {
+    handlerSubmit = (e) => {
         e.preventDefault();
-        this.setState({
-            msgLocal: this.state.msgLocal + "1"
-        })
+        this.props.handlerLogin(this.state.user.email,this.state.user.password);
     }
 
     render() {
         return (
-            <form className="login-form">
-                <div className="alert alert-primary">
-                    {this.props.msg}
-                </div>
-                <div className="alert alert-success">
-                    {this.state.msgLocal}
-                </div>
-                <button onClick={this.changeLocalMsg}>Change Local MSG</button>
+            <form className="login-form" onSubmit={this.handlerSubmit}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input type="email" value={this.state.user.email} onChange={(e) => this.handlerChangeUser('email', e.target.value)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
