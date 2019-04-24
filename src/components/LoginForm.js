@@ -8,8 +8,7 @@ class LoginForm extends Component {
             user: {
                 email: '',
                 password: ''
-            },
-            msgLocal: 'Local Message'
+            }
         }
     }
     handlerChangeUser = (property, value) => {

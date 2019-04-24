@@ -3,7 +3,6 @@ const initState = {
 }
 
 const usersReducer = (state = initState, action) => {
-    console.log('Users Reducer');
 
     switch(action.type){
         case "LOGIN":
@@ -13,6 +12,7 @@ const usersReducer = (state = initState, action) => {
         break;
     }
 
+    console.log('Users Reducers', state);
     return state;
 }
 

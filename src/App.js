@@ -11,17 +11,11 @@ import User from './containers/User';
 
 class App extends Component {
 
-  handlerChangeSiteName = () => {
-    console.log('handlerChangeSiteName');
-    this.props.changeSiteName('New Site Name');
-  }
-
   render() {
     return (
       <Router>
         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
           <Link to="/">{this.props.siteName}</Link>
-          <button onClick={this.handlerChangeSiteName}>ChangeSiteName</button>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -56,7 +50,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = disaptch => {
   return {
     changeSiteName(newSiteName) {
-      console.log('changeSiteName - Dispatch With Action');
       disaptch(changeSiteName(newSiteName))
     }
   }
