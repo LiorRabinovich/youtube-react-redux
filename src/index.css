@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.card {
+  max-width: 250px;
+}

@@ -32,3 +32,29 @@ export const logoutAction = () => {
         payload: false
     }
 }
+
+export const getUsersAction = (pageNumber) => {
+    return async (dispatch) => {
+        fetch(`https://reqres.in/api/users?page=${pageNumber}`).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            return dispatch({
+                type: "SET_USERS",
+                payload: data
+            })
+        });
+    }
+}
+
+export const getUserAction = (userID) => {
+    return async (dispatch) => {
+        fetch(`https://reqres.in/api/users/${userID}`).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            return dispatch({
+                type: "SET_USER_ACTIVE",
+                payload: data.data
+            })
+        });
+    }
+}
