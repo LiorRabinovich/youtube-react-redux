@@ -1,12 +1,15 @@
+const isLoggedLocalStorage = window.localStorage.getItem('isLogged');
+
 const initState = {
-    isLogged: false
+    isLogged: (isLoggedLocalStorage !== null ? (isLoggedLocalStorage === 'true') : false)
 }
 
 const usersReducer = (state = initState, action) => {
 
     switch(action.type){
         case "LOGIN":
-            state = {...state, isLogged: true}
+            window.localStorage.setItem('isLogged',action.payload);
+            state = {...state, isLogged: action.payload}
         break;
         default:
         break;

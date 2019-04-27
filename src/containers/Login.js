@@ -7,8 +7,15 @@ import { loginAction } from '../actions/usersActions';
 
 class Login extends Component {
 
+    componentWillMount() {
+        if(this.props.isLogged === true) {
+            this.props.history.push('/');
+        }
+    }
+
     handlerLogin = (email,password) => {
         this.props.login(email,password);
+        this.props.history.push('/');
     }
 
     render() {
@@ -22,7 +29,7 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-
+        isLogged: state.usersReducer.isLogged
     }
 }
 

@@ -18,13 +18,17 @@ export const loginAction = (email, password) => {
         }).then(function (data) {
             const isLogged = (typeof data.token !== 'undefined' && data.token !== '');
 
-            console.log(data);
-
             return dispatch({
                 type: "LOGIN",
                 payload: isLogged
             })
-
         });
+    }
+}
+
+export const logoutAction = () => {
+    return {
+        type: "LOGIN",
+        payload: false
     }
 }
